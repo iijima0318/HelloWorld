@@ -12,3 +12,5 @@ driver.maximize_window()
 
 # 処理が終わったらブラウザを閉じる
 driver.quit()
+
+hello, world.
