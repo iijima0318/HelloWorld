@@ -1,0 +1,139 @@
+"#
+ telnet server enable
+#
+ ip unreachables enable
+ ip ttl-expires enable","#
+ telnet server enable
+#
+ port-security enable
+ port-security access-user log enable failed-authorization mac-learning violation
+#
+ ip unreachables enable
+ ip ttl-expires enable"
+"#
+ lldp global enable
+#
+ undo dot1x access-user log enable abnormal-logoff failed-login normal-logoff successful-login
+#
+ undo mac-authentication access-user log enable failed-login logoff successful-login
+#
+ undo port-security mac-move permit
+ port-security access-user log enable failed-authorization mac-learning violation
+#","#
+ undo dot1x access-user log enable abnormal-logoff failed-login normal-logoff successful-login
+#
+ undo mac-authentication access-user log enable failed-login logoff successful-login
+#
+ undo port-security mac-move permit
+#"
+" mac-address mac-move fast-update
+#
+ loopback-detection global enable vlan 1 to 4094 
+ loopback-detection interval-time 5
+#"," mac-address mac-move fast-update
+#
+ lldp global enable
+#
+ loopback-detection global enable vlan 1 to 4094
+ loopback-detection interval-time 5
+#"
+" password-recovery enable
+#
+ port-security enable
+#
+vlan 1"," password-recovery enable
+#
+vlan 1"
+ combo enable auto,
+"#
+line class aux
+ user-role network-admin
+#","#
+line class aux
+ authentication-mode password
+ user-role network-admin
+#"
+" idle-timeout 20
+ undo user-role network-operator"," idle-timeout 20 0
+ undo user-role network-operator"
+"#
+ ip route-static 0.0.0.0 0.0.0.0 192.168.121.254
+#","#
+ ip route-static 0.0.0.0 0 192.168.121.254
+#"
+" undo user-role network-operator
+#
+ arp mac-interface-consistency check enable
+#"," undo user-role network-operator
+#"
+"#
+ info-center loghost 192.168.30.251
+ info-center loghost source Vlan-interface400
+ info-center source SYSLOG loghost level warning
+#","#
+ info-center loghost source Vlan-interface400
+ info-center loghost 192.168.30.251
+ info-center source SYSLOG loghost level warning
+#"
+"#
+ undo http-redirect https-port
+#
+return","#
+ undo http-redirect https-port
+#
+ security-enhanced level 1
+#
+return"
+"user-group system
+#
+undo password-control complexity user-name check","user-group system
+ undo password-control complexity user-name check"
+" ntp-service enable
+ ntp-service source vlan-interface 400"," ntp-service enable
+ ntp-service source Vlan-interface400"
+"#
+ snmp-agent
+ snmp-agent trap enable
+ snmp-agent community write simple U-NET
+ snmp-agent sys-info version v2c 
+ snmp-agent target-host trap address udp-domain 192.168.30.251 params securityname U-NET v2c
+ snmp-agent trap source vlan-interface 400
+ snmp-agent trap enable
+ snmp-agent trap enable port-security
+ undo snmp-agent sys-info version v3
+ undo snmp-agent trap enable arp
+ undo snmp-agent trap enable radius
+ undo snmp-agent trap enable stp","#
+ snmp-agent
+ snmp-agent trap enable
+ snmp-agent community write simple U-NET
+ snmp-agent sys-info version v2c
+ snmp-agent target-host trap address udp-domain 192.168.30.251 params securityname U-NET v2c
+ undo snmp-agent trap enable ifmonitor
+ undo snmp-agent trap enable mac-address
+ snmp-agent trap enable port-security
+ snmp-agent trap source Vlan-interface400
+ undo snmp-agent sys-info version v3
+ undo snmp-agent trap enable arp
+ undo snmp-agent trap enable radius
+ undo snmp-agent trap enable stp
+ undo snmp-agent trap enable syslog
+#
+ ifmonitor crc-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+ ifmonitor input-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+ ifmonitor output-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+#
+ undo gratuitous-arp-learning enable
+ arp mac-interface-consistency check enable"
+"#
+local-user ura8su class manage
+ password simple ura8suNW-SW!
+ service-type telnet terminal
+ authorization-attribute user-role network-admin
+#","#
+local-user ura8su class manage
+ password simple ura8suNW-SW!
+ service-type telnet terminal
+ authorization-attribute user-role network-admin
+ undo authorization-attribute user-role network-operator
+#"

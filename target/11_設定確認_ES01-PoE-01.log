@@ -1,0 +1,326 @@
+
+<ES01-PoE-01>
+<ES01-PoE-01>
+<ES01-PoE-01>dis
+<ES01-PoE-01>display cu
+<ES01-PoE-01>display current-configuration 
+#
+ version 7.1.16
+#
+ sysname ES01-PoE-01
+#
+ clock timezone JST add 09:00:00
+#
+ telnet server enable
+#
+ port-security enable
+ port-security access-user log enable failed-authorization mac-learning violation
+#
+ ip unreachables enable
+ ip ttl-expires enable
+#
+ mac-address mac-move fast-update
+#
+ lldp global enable
+#
+ loopback-detection global enable vlan 1 to 4094 
+ loopback-detection interval-time 5
+#
+ shutdown-interval 60
+#
+ password-recovery enable
+#
+vlan 1
+#
+vlan 100
+ description FixedIP
+#
+vlan 200
+ description PCroom
+#
+vlan 250
+ description PCBridge
+#
+vlan 300
+ description Teacher
+#
+vlan 400
+ description Management
+#
+vlan 500
+ description Student1
+#
+vlan 700
+ description Reserved1
+#
+vlan 800
+ description Reserved2
+#
+vlan 900
+ description GigaLAN
+#
+vlan 1000
+ description BYOD
+#
+interface Bridge-Aggregation1
+ description ES01-L3-01_BAGG1
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 100 200 250 300 400 500 700 800 900 1000 
+ link-aggregation mode dynamic
+#
+interface NULL0
+#
+interface Vlan-interface400
+ description Management
+ ip address 192.168.121.250 255.255.255.128
+#
+interface GigabitEthernet1/0/1
+ description ES01-AP-01
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 300 400 500 900 1000
+ poe enable
+#
+interface GigabitEthernet1/0/2
+ description ES01-AP-02
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 300 400 500 900 1000
+ poe enable
+#
+interface GigabitEthernet1/0/3
+ description ES01-AP-03
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 300 400 500 900
+ poe enable
+#
+interface GigabitEthernet1/0/4
+ description ES01-AP-04
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 300 400 500 900 1000
+ poe enable
+#
+interface GigabitEthernet1/0/5
+ description ES01-AP-27
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 300 400 500 900 1000
+ poe enable
+#
+interface GigabitEthernet1/0/6
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/7
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/8
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/9
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/10
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/11
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/12
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/13
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/14
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/15
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/16
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/17
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/18
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/19
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/20
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/21
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/22
+ shutdown
+ poe enable
+#
+interface GigabitEthernet1/0/23
+ description ES01-L3-01_GE1/0/1
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 100 200 250 300 400 500 700 800 900 1000 
+ poe enable
+ port link-aggregation group 1
+#
+interface GigabitEthernet1/0/24
+ description ES01-L3-01_GE1/0/2
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 100 200 250 300 400 500 700 800 900 1000 
+ poe enable
+ port link-aggregation group 1
+#
+interface GigabitEthernet1/0/25
+ combo enable fiber
+ shutdown
+#
+interface GigabitEthernet1/0/26
+ combo enable fiber
+ shutdown
+#
+interface GigabitEthernet1/0/27
+ combo enable fiber
+ shutdown
+#
+interface GigabitEthernet1/0/28
+ combo enable fiber
+ shutdown
+#
+line class aux
+ authentication-mode password
+ user-role network-admin
+ set authentication password hash $h$6$Pmj96Hdilx7+vadD$/vTWBwYeI2H2FnlDAbhjoS2gsx+N8s/s7XuC5DogN6EFP8eAQ/E0HJfIc+pmAZVdm5gZnyl0fXEE8a8eC9LLug==
+#
+line class vty
+ user-role network-operator
+#
+line aux 0
+ authentication-mode scheme
+ user-role network-admin
+#
+line vty 0 15
+ authentication-mode scheme
+ user-role network-admin
+ protocol inbound telnet
+ idle-timeout 20 0
+#
+line vty 16 63
+ user-role network-admin
+#
+ ip route-static 0.0.0.0 0 192.168.121.254
+#
+ info-center loghost source Vlan-interface400
+ info-center loghost 192.168.30.251
+ info-center source SYSLOG loghost level warning
+#
+ snmp-agent
+ snmp-agent local-engineid 8000007780ACCE92042C8200000001
+ snmp-agent community write cipher $c$3$UBR4ZSrkB+kwWiKsOnlspNCeq7HnFyOd
+ snmp-agent sys-info version v2c 
+ snmp-agent target-host trap address udp-domain 192.168.30.251 params securityname U-NET v2c
+ undo snmp-agent trap enable ifmonitor 
+ undo snmp-agent trap enable mac-address 
+ snmp-agent trap enable port-security 
+ snmp-agent trap source Vlan-interface400
+#
+ ifmonitor crc-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+ ifmonitor input-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+ ifmonitor output-error slot 1 high-threshold 1000 low-threshold 100 interval 30
+#
+ undo gratuitous-arp-learning enable
+ arp mac-interface-consistency check enable
+#
+ ntp-service enable
+ ntp-service source Vlan-interface400
+ ntp-service unicast-server 192.168.121.254 priority
+#
+radius scheme system
+ user-name-format without-domain
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+ undo password-control complexity user-name check
+#
+local-user ura8su class manage
+ password hash $h$6$Wv/tT5bAGtO5H96y$RTnsGVnT8mGTf3NqOMDyp9bzkrbGpnEPllaSQ9j7cbK9lUEU24269cdk9gqtBeHckZIXvDnf0hn5XVoyv50m4w==
+ service-type telnet terminal
+ authorization-attribute user-role network-admin
+#
+ security-enhanced level 1
+#
+return
+<ES01-PoE-01>
+<ES01-PoE-01>
+<ES01-PoE-01>

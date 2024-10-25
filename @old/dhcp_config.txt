@@ -1,0 +1,312 @@
+ip dhcp pool ES01-Teacher
+ network 192.168.121.0 255.255.255.128
+ default-router 192.168.121.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES01-Student1
+ network 192.168.122.0 255.255.254.0
+ default-router 192.168.123.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES02-Teacher
+ network 192.168.125.0 255.255.255.128
+ default-router 192.168.125.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES02-Student1
+ network 192.168.126.0 255.255.254.0
+ default-router 192.168.127.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES03-Teacher
+ network 192.168.189.0 255.255.255.128
+ default-router 192.168.189.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES03-Student1
+ network 192.168.190.0 255.255.254.0
+ default-router 192.168.191.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES04-Teacher
+ network 192.168.117.0 255.255.255.128
+ default-router 192.168.117.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES04-Student1
+ network 192.168.118.0 255.255.254.0
+ default-router 192.168.119.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES05-Teacher
+ network 192.168.209.0 255.255.255.128
+ default-router 192.168.209.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES05-Student1
+ network 192.168.210.0 255.255.254.0
+ default-router 192.168.211.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES07-Teacher
+ network 192.168.153.0 255.255.255.128
+ default-router 192.168.153.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES07-Student1
+ network 192.168.154.0 255.255.254.0
+ default-router 192.168.155.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES08-Teacher
+ network 192.168.205.0 255.255.255.128
+ default-router 192.168.205.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES08-Student1
+ network 192.168.206.0 255.255.254.0
+ default-router 192.168.207.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES09-Teacher
+ network 192.168.93.0 255.255.255.128
+ default-router 192.168.93.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES09-Student1
+ network 192.168.94.0 255.255.254.0
+ default-router 192.168.95.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES09-Edu-Center
+ network 192.168.248.0 255.255.255.0
+ default-router 192.168.248.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES10-Teacher
+ network 192.168.201.0 255.255.255.128
+ default-router 192.168.201.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES10-Student1
+ network 192.168.202.0 255.255.254.0
+ default-router 192.168.203.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES11-Teacher
+ network 192.168.113.0 255.255.255.128
+ default-router 192.168.113.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES11-Student1
+ network 192.168.114.0 255.255.254.0
+ default-router 192.168.115.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES12-Teacher
+ network 192.168.213.0 255.255.255.128
+ default-router 192.168.213.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES12-Student1
+ network 192.168.214.0 255.255.254.0
+ default-router 192.168.215.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES13-Teacher
+ network 192.168.217.0 255.255.255.128
+ default-router 192.168.217.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES13-Student1
+ network 192.168.218.0 255.255.254.0
+ default-router 192.168.219.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES14-Teacher
+ network 192.168.229.0 255.255.255.128
+ default-router 192.168.229.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES14-Student1
+ network 192.168.230.0 255.255.254.0
+ default-router 192.168.231.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES15-Teacher
+ network 192.168.225.0 255.255.255.128
+ default-router 192.168.225.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES15-Student1
+ network 192.168.226.0 255.255.254.0
+ default-router 192.168.227.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES16-Teacher
+ network 192.168.233.0 255.255.255.128
+ default-router 192.168.233.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool ES16-Student1
+ network 192.168.234.0 255.255.254.0
+ default-router 192.168.235.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH01-Teacher
+ network 192.168.129.0 255.255.255.128
+ default-router 192.168.129.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH01-Student1
+ network 192.168.130.0 255.255.254.0
+ default-router 192.168.131.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH01-Student2
+ network 192.168.132.0 255.255.252.0
+ default-router 192.168.135.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH02-Teacher
+ network 192.168.137.0 255.255.255.128
+ default-router 192.168.137.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH02-Student1
+ network 192.168.138.0 255.255.254.0
+ default-router 192.168.139.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH02-Student2
+ network 192.168.140.0 255.255.252.0
+ default-router 192.168.143.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH03-Teacher
+ network 192.168.145.0 255.255.255.128
+ default-router 192.168.145.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH03-Student1
+ network 192.168.146.0 255.255.254.0
+ default-router 192.168.147.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH05-Teacher
+ network 192.168.157.0 255.255.255.128
+ default-router 192.168.157.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH05-Student1
+ network 192.168.158.0 255.255.254.0
+ default-router 192.168.159.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH05-Student2
+ network 192.168.160.0 255.255.252.0
+ default-router 192.168.163.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH06-Teacher
+ network 192.168.169.0 255.255.255.128
+ default-router 192.168.169.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH06-Student1
+ network 192.168.170.0 255.255.254.0
+ default-router 192.168.171.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH07-Teacher
+ network 192.168.173.0 255.255.255.128
+ default-router 192.168.173.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH07-Student1
+ network 192.168.174.0 255.255.254.0
+ default-router 192.168.175.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH07-Student2
+ network 192.168.176.0 255.255.252.0
+ default-router 192.168.179.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH08-Teacher
+ network 192.168.105.0 255.255.255.0
+ default-router 192.168.105.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH08-Student1
+ network 192.168.107.0 255.255.255.0
+ default-router 192.168.107.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool JH08-Student2
+ network 192.168.108.0 255.255.252.0
+ default-router 192.168.111.254
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool OT01-Teacher
+ network 192.168.241.0 255.255.255.128
+ default-router 192.168.241.126
+ dns-server 8.8.8.8
+ exit
+
+ip dhcp pool OT01-Student1
+ network 192.168.242.0 255.255.254.0
+ default-router 192.168.243.254
+ dns-server 8.8.8.8
+ exit
+
